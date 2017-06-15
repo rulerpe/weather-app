@@ -2,35 +2,28 @@
 var React = require('react');
 var Nav = require('./Nav');
 var Home = require('./Home');
+var Forecast = require('./Forecast');
+var ReactRouter = require('react-router-dom');
+var Router = ReactRouter.BrowserRouter;
+var Route = ReactRouter.Route;
+var Switch = ReactRouter.Switch;
+
 
 class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      location: ''
-    }
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleSubmit(input_location){
-    this.setState(function(){
-      return {
-        location: input_location
-      }
-    })
-  }
   render() {
-    var location = this.state.location
     return (
-      <div className="main-container">
-        <Nav
-          location={location}
-          onSubmit={this.handleSubmit}
-          />
-        <Home
-          location={location}
-          onSubmit={this.handleSubmit}
-          />
-      </div>
+      <Router>
+        <div className="main-container">
+          <Nav/>
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route path='/forecast' component={Forecast}/>
+              <Route render={function(){
+                return <p>Not Found</p>
+              }}/>
+            </Switch>
+        </div>
+      </Router>
     )
   }
 }

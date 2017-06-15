@@ -4,7 +4,7 @@
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
-.main-container {
+.main-container{
   height: 100%;
   width:100%
 }
@@ -83,4 +83,36 @@
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+.forecast-header{
+  font-size: 65px;
+    color: #333;
+    font-weight: 100;
+    text-align: center;
+}
+
+.forecast-container{
+  flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weather{
+  height: 130px;
+}
+.dayContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 35px;
+}
+.subheader {
+  font-size: 30px;
+  color: #333;
+  font-weight: 100;
 }
